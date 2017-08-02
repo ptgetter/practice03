@@ -16,6 +16,16 @@ public class CalcApp {
 			if( "quit".equals( expression ) ) {
 				break;
 			}
+			
+			String[] tokens = expression.split(" ");
+			Operation operation = Operation.getOperation(tokens);
+			if(operation != null) {
+				int result = operation.calculate();
+				System.out.println(result);
+			}
+			else {
+				System.out.println("Invalid Input. Please retry.");
+			}
 		}
 		
 		scanner.close();
